@@ -1,31 +1,19 @@
 
 var checkIfLeap = function(yearInput) {
-  var isLeapYear = false;
-   if (typeof yearInput != Number) {
+    if (isNaN(yearInput)) {
+      return "Not a valid number.";
+    }
 
-   } else if () {
-
-   } else if (yearInput % 4 === 0) {
-    isLeapYear = true;
-  } else if (yearInput % 100 === 0 ){
-    isLeapYear = false;
-    return isLeapYear
-  } else if (yearInput % 400 === 0 ) {
-    isLeapYear = true;
-  }
-  return true;
-}
-
-
-
-
-
+   if ((yearInput % 4 === 0) && (yearInput % 100 !== 0) || (yearInput % 400 === 0)) {
+     return true;
+   } else {
+     return false;
+   }
+ };
 $(document).ready(function(){
-
   $("#leapYear").submit(function(event){
     event.preventDefault();
     var year = parseInt($("#userYear").val());
     console.log(checkIfLeap(year));
   });
-
 });
